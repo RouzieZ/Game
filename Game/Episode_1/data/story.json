@@ -1,0 +1,206 @@
+{
+  "start_scene_id": "scene_1_1",
+  "story_basis": {
+    "protagonist_id": "artem_sokolov",
+    "primary_goals": ["find_mila", "learn_mother_fate", "escape_city"],
+    "central_question": "Что важнее: выжить любой ценой или остаться человеком?"
+  },
+  "scenes": [
+    {
+      "id": "scene_1_1",
+      "chapter": "Глава 1. Последний урок",
+      "title": "Последний урок",
+      "text": "В тот день всё началось не с сирен.\n\nНе с взрывов.\nНе с паники на улицах.\nНе с военных машин у перекрёстков.\n\nВсё началось с обычного школьного звонка.\n\nАртём сидел на последней парте и машинально рисовал в тетради карикатуру на учителя физики. До конца урока оставалось семь минут. За окном моросил дождь, батареи шипели, Даня рядом пытался списать домашку, а Лера через ряд переписывалась с кем-то, пряча телефон под рукавом.\n\nПотом в коридоре кто-то закричал.\n\nКрик оборвался резко, будто человеку закрыли рот ладонью.\n\nУчитель поднял голову.\n\n— Сидите тихо, — сказал он, хотя сам уже смотрел на дверь.\n\nТелефон Артёма завибрировал.\n\nСообщение от мамы:\n\n«Артём, где ты? Не иди домой. Найди Милу. Если кто-то укушен — не подходи.»",
+      "conditions": [],
+      "choices": [
+        {"id":"message_mom","text":"Написать маме: «Что происходит?»","conditions":[],"effects":[{"type":"stat","target":"survival","value":1},{"type":"flag","target":"mother_clue","value":true}],"next":"scene_1_2","result_text":"Пальцы дрожали, пока ты набирал сообщение. Ответа не было."},
+        {"id":"look_corridor","text":"Подойти к двери и посмотреть в коридор.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_1_2","result_text":"За мутным стеклом метнулась чужая тень."},
+        {"id":"call_friends","text":"Позвать Даню и Леру.","conditions":[],"effects":[{"type":"stat","target":"trust_danya","value":1},{"type":"stat","target":"trust_lera","value":1}],"next":"scene_1_2","result_text":"Они сразу поняли: что-то не так."},
+        {"id":"check_news","text":"Проверить новости.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_1_2","result_text":"В ленте повторялось одно слово: карантин."},
+        {"id":"stay_seated","text":"Остаться на месте.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":1}],"next":"scene_1_2","result_text":"Ты не стал подталкивать класс к панике."}
+      ]
+    },
+    {
+      "id": "scene_1_2",
+      "chapter": "Глава 1. Последний урок",
+      "title": "Дверь открывается",
+      "text": "По громкой связи раздался голос директора:\n\n«Всем оставаться в кабинетах. Не выходить в коридор. Повторяю, не выходить…»\n\nСвязь оборвалась.\n\nЧерез несколько секунд в дверь ударили.\n\nОдин раз.\n\nВторой.\n\nНа третьем ударе стекло в двери треснуло.\n\nУчитель отступил назад.\n\n— Всем к окнам, — сказал он. — Быстро.\n\nНо было поздно. Дверь распахнулась.\n\nВ класс вошёл старшеклассник из параллели. Его рубашка была разорвана, лицо — серое, а рот измазан кровью.\n\nОн посмотрел прямо на ближайшую парту.\n\nИ бросился вперёд.",
+      "conditions": [],
+      "choices": [
+        {"id":"push_desk","text":"Толкнуть парту на заражённого.","dangerous":true,"risky":true,"conditions":[],"effects":[{"type":"stat","target":"fatigue","value":1},{"type":"stat","target":"survival","value":1}],"next":"scene_1_3","result_text":"Парта сбила его с ног и открыла путь.","critical_result_text":"Раненое тело не выдержало рывка."},
+        {"id":"help_teacher","text":"Помочь учителю закрыть дверь.","dangerous":true,"conditions":[],"effects":[{"type":"stat","target":"humanity","value":1},{"type":"stat","target":"fatigue","value":1}],"next":"scene_1_3","result_text":"Учитель успел вытолкнуть младшеклассника из прохода."},
+        {"id":"grab_danya","text":"Схватить Даню и бежать к окну.","conditions":[],"effects":[{"type":"stat","target":"trust_danya","value":1},{"type":"stat","target":"fatigue","value":1}],"next":"scene_1_3","result_text":"Даня не отстал только потому, что ты держал его за рукав."},
+        {"id":"call_exit","text":"Позвать всех к запасному выходу.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":1}],"next":"scene_1_3","result_text":"Несколько человек услышали тебя и побежали следом."},
+        {"id":"hide_desk","text":"Спрятаться под партой.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":-1},{"type":"stat","target":"survival","value":1},{"type":"flag","target":"lera_with_player","value":false}],"next":"scene_1_4b","result_text":"Ты дождался тишины, но друзья исчезли."}
+      ]
+    },
+    {
+      "id": "scene_1_3",
+      "chapter": "Глава 1. Последний урок",
+      "title": "Коридор",
+      "text": "Коридор был уже не похож на школу.\n\nПо полу валялись рюкзаки. Возле шкафчиков сидела девочка из младших классов и прижимала к себе плюшевого медведя. На лестнице кто-то бился в закрытую дверь. Из динамиков всё ещё шипела оборванная школьная трансляция.\n\nЛера быстро огляделась.\n\n— Есть три пути. Главный вход, столовая или медкабинет. Через главный будет быстрее. Через столовую можно взять еду. В медкабинете — бинты.\n\nДаня сглотнул.\n\n— А может, просто спрячемся?",
+      "conditions": [],
+      "choices": [
+        {"id":"main_exit","text":"Идти к главному входу.","dangerous":true,"conditions":[],"effects":[],"next":"scene_2_1a"},
+        {"id":"cafeteria","text":"Идти через столовую.","conditions":[],"effects":[],"next":"scene_2_1b"},
+        {"id":"medical","text":"Идти в медкабинет.","conditions":[],"effects":[],"next":"scene_2_1c"},
+        {"id":"library","text":"Спрятаться в библиотеке.","conditions":[],"effects":[{"type":"stat","target":"fatigue","value":-1}],"next":"scene_2_1d"},
+        {"id":"help_girl","text":"Помочь девочке у шкафчиков.","dangerous":true,"conditions":[],"effects":[{"type":"stat","target":"humanity","value":2},{"type":"stat","target":"fatigue","value":1}],"next":"scene_2_1e"}
+      ]
+    },
+    {
+      "id":"scene_1_4b","chapter":"Глава 1. Последний урок","title":"После тишины","text":"Ты выбрался из-под парты, когда в классе остались только перевёрнутые стулья и тяжёлое дыхание за дверью. Даня и Лера ушли. Теперь до школьного двора пришлось добираться одному.","conditions":[],
+      "choices":[{"id":"escape_alone","text":"Пробраться к запасной лестнице.","conditions":[],"effects":[{"type":"flag","target":"hero_alone","value":true},{"type":"flag","target":"danya_in_group","value":false},{"type":"stat","target":"survival","value":2}],"next":"scene_2_2","result_text":"Школа осталась позади, но друзей рядом не было."}]
+    },
+    {
+      "id":"scene_2_1a","chapter":"Глава 2. Побег","title":"Главный вход","text":"У главного входа люди давили друг друга у запертых створок. Ты заметил боковую дверь охраны и повёл остальных туда, пока толпа смотрела в другую сторону.","conditions":[],
+      "choices":[
+        {"id":"guard_door","text":"Взломать боковую дверь стулом.","dangerous":true,"conditions":[],"effects":[{"type":"stat","target":"fatigue","value":1},{"type":"stat","target":"survival","value":2}],"next":"scene_2_2"},
+        {"id":"help_crowd","text":"Сначала открыть створку для остальных.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":2},{"type":"stat","target":"fatigue","value":1}],"next":"scene_2_2"}
+      ]
+    },
+    {
+      "id":"scene_2_1b","chapter":"Глава 2. Побег","title":"Столовая","text":"В столовой пахло супом, мокрой одеждой и страхом. Повариха пыталась закрыть окно металлическим противнем. Несколько младшеклассников прятались под столами.\n\nНа раздаче остались бутылки воды, хлеб и шоколадки.\n\nДаня посмотрел на тебя:\n\n— Нам надо взять еду.\n\nЛера тихо сказала:\n\n— А им что оставим?","conditions":[],
+      "choices":[
+        {"id":"take_some","text":"Взять немного еды.","conditions":[],"effects":[{"type":"add_item","target":"water"},{"type":"add_item","target":"bar"},{"type":"stat","target":"humanity","value":1},{"type":"flag","target":"food_stock","value":true}],"next":"scene_2_2"},
+        {"id":"take_all","text":"Забрать всё, что влезет.","conditions":[],"effects":[{"type":"add_item","target":"water"},{"type":"add_item","target":"bar"},{"type":"add_item","target":"canned_food"},{"type":"stat","target":"humanity","value":-1},{"type":"stat","target":"trust_danya","value":-1},{"type":"flag","target":"food_stock","value":true}],"next":"scene_2_2"},
+        {"id":"give_food","text":"Отдать еду младшим.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":2},{"type":"stat","target":"trust_danya","value":1},{"type":"stat","target":"hunger","value":1}],"next":"scene_2_2"},
+        {"id":"help_cook","text":"Помочь поварихе закрыть окно.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":1},{"type":"add_item","target":"knife"}],"next":"scene_2_2"}
+      ]
+    },
+    {
+      "id":"scene_2_1c","chapter":"Глава 2. Побег","title":"Медкабинет","text":"Дверь медкабинета была приоткрыта.\n\nВнутри мигала лампа. На полу валялись бинты, градусники и перевёрнутая кушетка. За ширмой кто-то тихо стонал.\n\nЛера подняла палец к губам.\n\n— Тише.\n\nНа столе лежала аптечка. Рядом — фонарик и пачка батареек.","conditions":[],
+      "choices":[
+        {"id":"take_medkit","text":"Взять аптечку.","conditions":[],"effects":[{"type":"add_item","target":"medkit"},{"type":"flag","target":"medicine_stock","value":true}],"next":"scene_2_2"},
+        {"id":"take_bandage_light","text":"Взять бинт и фонарик.","conditions":[],"effects":[{"type":"add_item","target":"bandage"},{"type":"add_item","target":"flashlight"}],"next":"scene_2_2"},
+        {"id":"check_curtain","text":"Проверить, кто за ширмой.","dangerous":true,"conditions":[],"effects":[{"type":"stat","target":"humanity","value":1}],"next":"scene_2_1c_1"},
+        {"id":"leave_medical","text":"Быстро уйти.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_2_2"}
+      ]
+    },
+    {
+      "id":"scene_2_1c_1","chapter":"Глава 2. Побег","title":"За ширмой","text":"За ширмой лежала школьная медсестра. Она была ранена, но в сознании. Медсестра протянула тебе бинт и прошептала, что укушенных увозили в городскую больницу ещё до начала паники.","conditions":[],
+      "choices":[{"id":"help_nurse","text":"Оставить ей воду и забрать бинт.","conditions":[],"effects":[{"type":"add_item","target":"bandage"},{"type":"flag","target":"hospital_truth","value":true},{"type":"stat","target":"humanity","value":1}],"next":"scene_2_2"}]
+    },
+    {
+      "id":"scene_2_1d","chapter":"Глава 2. Побег","title":"Библиотека","text":"За тяжёлой дверью библиотеки было тихо. Вы перевели дыхание и нашли схему служебных выходов, приклеенную к столу библиотекаря.","conditions":[],
+      "choices":[{"id":"use_map","text":"Запомнить путь через архив.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_2_2"}]
+    },
+    {
+      "id":"scene_2_1e","chapter":"Глава 2. Побег","title":"Девочка у шкафчиков","text":"Девочка не отпускала медведя и не могла назвать своё имя. Вы довели её до учительской, где несколько взрослых укрепляли дверь. Только после этого побежали к выходу.","conditions":[],
+      "choices":[{"id":"leave_safe","text":"Передать девочку учителям и уходить.","conditions":[],"effects":[{"type":"stat","target":"trust_danya","value":1}],"next":"scene_2_2"}]
+    },
+    {
+      "id":"scene_2_2","chapter":"Глава 2. Побег","title":"Побег из школы","text":"Вы выбрались во внутренний двор школы.\n\nДождь стал сильнее. Асфальт блестел, будто его покрыли маслом. У ворот толпились люди, но никто уже не понимал, кто пытается войти, а кто выбраться.\n\nГде-то рядом завыла автомобильная сигнализация.\n\nЛера посмотрела на тебя.\n\n— Куда теперь?\n\nТы достал телефон. Связь прыгала. Последнее сообщение от мамы всё ещё висело на экране:\n\n«Найди Милу.»\n\nМила училась в начальной школе в четырёх кварталах отсюда.\n\nДом был ближе.\n\nБольница — дальше всех.","conditions":[],
+      "choices":[
+        {"id":"go_home","text":"Идти домой.","conditions":[],"effects":[],"next":"scene_3_1a"},
+        {"id":"go_mila","text":"Идти в начальную школу за Милой.","conditions":[],"effects":[],"next":"scene_3_1b"},
+        {"id":"go_hospital","text":"Идти в больницу к матери.","conditions":[],"effects":[],"next":"scene_3_1c"},
+        {"id":"find_shelter","text":"Сначала найти безопасное место.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_4_1"}
+      ]
+    },
+    {
+      "id":"scene_3_1a","chapter":"Глава 3. Город","title":"Дом","text":"Подъезд встретил вас запахом сырости и открытой дверью лифта. Квартира была пуста. На кухонном столе лежали ключ от дачи и семейная фотография, а на холодильнике мама оставила записку: «Если связь пропадёт — старая станция».","conditions":[],
+      "choices":[
+        {"id":"take_family_things","text":"Взять ключ и фотографию.","conditions":[],"effects":[{"type":"add_item","target":"dacha_key"},{"type":"add_item","target":"family_photo"},{"type":"flag","target":"station_clue","value":true},{"type":"stat","target":"humanity","value":1}],"next":"scene_4_1"},
+        {"id":"search_supplies","text":"Обыскать кладовку и уходить.","conditions":[],"effects":[{"type":"add_item","target":"water"},{"type":"add_item","target":"crowbar"},{"type":"stat","target":"survival","value":1}],"next":"scene_4_1"}
+      ]
+    },
+    {
+      "id":"scene_3_1b","chapter":"Глава 3. Город","title":"Начальная школа","text":"Начальная школа стояла с распахнутыми дверями. В актовом зале плакали дети. Мила пряталась за сценой и узнала тебя по голосу. Между вами и выходом бродил заражённый охранник.","conditions":[],
+      "choices":[
+        {"id":"save_mila_together","text":"Отвлечь охранника и вывести Милу.","dangerous":true,"risky":true,"conditions":[],"effects":[{"type":"flag","target":"mila_found","value":true},{"type":"flag","target":"mila_saved","value":true},{"type":"stat","target":"trust_mila","value":3},{"type":"stat","target":"humanity","value":2},{"type":"stat","target":"fatigue","value":1}],"next":"scene_4_1","critical_result_text":"Ты не смог добежать до Милы."},
+        {"id":"save_mila_quiet","text":"Провести Милу через подсобный коридор.","conditions":[{"type":"stat_min","target":"survival","value":2}],"effects":[{"type":"flag","target":"mila_found","value":true},{"type":"flag","target":"mila_saved","value":true},{"type":"stat","target":"trust_mila","value":2},{"type":"stat","target":"survival","value":1}],"next":"scene_4_1"},
+        {"id":"leave_school","text":"Не рисковать и уйти.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":-2},{"type":"stat","target":"survival","value":2}],"next":"scene_4_1","result_text":"Голос Милы ещё долго звучал в памяти."}
+      ]
+    },
+    {
+      "id":"scene_3_1c","chapter":"Глава 3. Город","title":"Больница","text":"Приёмное отделение было разгромлено. В кабинете матери ты нашёл папку с пометкой «Нулевая группа» и запись на диктофоне: заражение началось раньше официальных сообщений, а военные собирали выживших у старой станции.","conditions":[],
+      "choices":[
+        {"id":"take_documents","text":"Забрать документы матери.","conditions":[],"effects":[{"type":"add_item","target":"mother_docs"},{"type":"flag","target":"hospital_truth","value":true},{"type":"flag","target":"station_clue","value":true},{"type":"stat","target":"survival","value":1}],"next":"scene_4_1"},
+        {"id":"help_patient","text":"Сначала помочь раненому пациенту.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":2},{"type":"add_item","target":"bandage"},{"type":"flag","target":"hospital_truth","value":true}],"next":"scene_4_1"},
+        {"id":"leave_hospital","text":"Уйти, пока коридор свободен.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_4_1"}
+      ]
+    },
+    {
+      "id":"scene_4_1","chapter":"Глава 4. Ночь","title":"Первый привал","type":"camp","camp":true,"text":"Ночь пришла слишком быстро.\n\nГород за окнами горел пятнами: где-то мигали фары брошенных машин, где-то плясал огонь, где-то ещё работали фонари, будто ничего не случилось.\n\nВы нашли временное убежище.\n\nНо суть была одна.\n\nВпервые за день стало тихо.\n\nИ именно в этой тишине стало страшнее всего.","conditions":[],
+      "choices":[
+        {"id":"camp_sleep","text":"Поспать","conditions":[],"effects":[{"type":"stat","target":"fatigue","value":-2}],"next":"scene_4_2","result_text":"Несколько часов сна вернули способность ясно думать."},
+        {"id":"camp_eat","text":"Поесть","conditions":[{"type":"any","reason":"в рюкзаке нет еды","conditions":[{"type":"has_item","target":"bar"},{"type":"has_item","target":"canned_food"}]}],"effects":[{"type":"consume_food"}],"next":"scene_4_2"},
+        {"id":"camp_heal","text":"Обработать раны","conditions":[{"type":"any","reason":"нет подходящих медикаментов","conditions":[{"type":"has_item","target":"bandage"},{"type":"has_item","target":"medkit"}]},{"type":"any","reason":"Артём не ранен","conditions":[{"type":"health","value":"wounded"},{"type":"health","value":"critical"}]}],"effects":[{"type":"heal_best"}],"next":"scene_4_2"},
+        {"id":"camp_talk_danya","text":"Поговорить с Даней","hide_when_unavailable":true,"conditions":[{"type":"flag","target":"danya_in_group","value":true},{"type":"flag","target":"danya_alive","value":true},{"type":"flag","target":"camp_talk_danya","value":false}],"effects":[{"type":"flag","target":"camp_talk_danya","value":true}],"next":"scene_4_1d"},
+        {"id":"camp_talk_lera","text":"Поговорить с Лерой","hide_when_unavailable":true,"conditions":[{"type":"flag","target":"lera_with_player","value":true},{"type":"flag","target":"lera_alive","value":true},{"type":"flag","target":"camp_talk_lera","value":false}],"effects":[{"type":"flag","target":"camp_talk_lera","value":true}],"next":"scene_4_1l"},
+        {"id":"camp_talk_mila","text":"Поговорить с Милой","hide_when_unavailable":true,"conditions":[{"type":"flag","target":"mila_found","value":true},{"type":"flag","target":"camp_talk_mila","value":false}],"effects":[{"type":"flag","target":"camp_talk_mila","value":true}],"next":"scene_4_1m"},
+        {"id":"camp_phone","text":"Проверить телефон","conditions":[],"effects":[{"type":"flag","target":"station_clue","value":true}],"next":"scene_4_2","result_text":"Среди помех удалось разобрать сообщение о старой станции."},
+        {"id":"camp_continue","text":"Продолжить путь","conditions":[],"effects":[],"next":"scene_4_2"}
+      ]
+    },
+    {"id":"scene_4_1d","chapter":"Глава 4. Ночь","title":"Разговор с Даней","text":"Даня признался, что боится не заражённых, а того, кем им придётся стать. Ты пообещал, что решения всё ещё принадлежат вам.","conditions":[],"choices":[{"id":"back_from_danya","text":"Вернуться к привалу.","conditions":[],"effects":[{"type":"stat","target":"trust_danya","value":1},{"type":"stat","target":"humanity","value":1}],"next":"scene_4_1"}]},
+    {"id":"scene_4_1l","chapter":"Глава 4. Ночь","title":"Разговор с Лерой","text":"Лера рассказала, что её отец дежурил в полицейском участке. Она не просила менять маршрут, но впервые позволила себе сказать, что надеется найти его живым.","conditions":[],"choices":[{"id":"back_from_lera","text":"Вернуться к привалу.","conditions":[],"effects":[{"type":"stat","target":"trust_lera","value":1}],"next":"scene_4_1"}]},
+    {"id":"scene_4_1m","chapter":"Глава 4. Ночь","title":"Разговор с Милой","text":"Мила спросила, правда ли мама ждёт их впереди. Ты не стал обещать невозможного, но сказал, что больше её не оставишь.","conditions":[],"choices":[{"id":"back_from_mila","text":"Вернуться к привалу.","conditions":[],"effects":[{"type":"stat","target":"trust_mila","value":1},{"type":"stat","target":"humanity","value":1}],"next":"scene_4_1"}]},
+    {
+      "id":"scene_4_2","chapter":"Глава 4. Ночь","title":"Ночной стук","text":"Ближе к утру кто-то постучал в дверь.\n\nТри коротких удара.\n\nПотом ещё два.\n\nДаня проснулся первым.\n\n— Не открывай, — прошептал он.\n\nСнаружи послышался женский голос:\n\n— Пожалуйста… у меня ребёнок. Пустите нас.\n\nЛера медленно подняла ножку стула, как оружие.","conditions":[],
+      "choices":[
+        {"id":"open_door","text":"Открыть дверь.","risky":true,"conditions":[],"effects":[{"type":"stat","target":"humanity","value":2}],"next":"scene_5_1"},
+        {"id":"keep_closed","text":"Не открывать.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1},{"type":"stat","target":"humanity","value":-1},{"type":"stat","target":"trust_danya","value":-1}],"next":"scene_5_1"},
+        {"id":"ask_bites","text":"Спросить, укушены ли они.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_5_1"},
+        {"id":"peephole","text":"Посмотреть в глазок.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_5_1"}
+      ]
+    },
+    {
+      "id":"scene_5_1","chapter":"Глава 5. Второй день","title":"Утро второго дня","text":"Утро не принесло облегчения.\n\nГород стал тише. Это было хуже, чем крики.\n\nНа улице почти не было машин. В небе висел чёрный дым. Где-то далеко работали громкоговорители:\n\n«Граждане, сохраняйте спокойствие. Проследуйте к ближайшему эвакуационному пункту…»\n\nЛера развернула найденную карту.\n\n— Есть три варианта. Старая станция, полицейский участок или торговый центр. Если твоя мама отправила сообщение про станцию, нам туда. Но без припасов мы далеко не уйдём.","conditions":[],
+      "choices":[
+        {"id":"old_station","text":"Идти к старой станции.","conditions":[],"effects":[{"type":"stat","target":"survival","value":1}],"next":"scene_6_1"},
+        {"id":"police_station","text":"Идти в полицейский участок.","conditions":[],"effects":[],"next":"scene_5_police"},
+        {"id":"shopping_mall","text":"Идти в торговый центр за припасами.","conditions":[],"effects":[],"next":"scene_5_mall"},
+        {"id":"return_for_mila","text":"Идти в начальную школу за Милой.","conditions":[{"type":"flag","target":"mila_found","value":false}],"effects":[],"next":"scene_3_1b"}
+      ]
+    },
+    {
+      "id":"scene_5_police","chapter":"Глава 5. Второй день","title":"Полицейский участок","text":"Участок оказался пуст. На стене висела карта эвакуации, а в комнате связи работала рация. Лера нашла жетон отца и долго держала его в ладони.","conditions":[],
+      "choices":[
+        {"id":"take_radio","text":"Взять рацию и поддержать Леру.","conditions":[],"effects":[{"type":"add_item","target":"radio"},{"type":"stat","target":"trust_lera","value":2},{"type":"stat","target":"humanity","value":1}],"next":"scene_6_1"},
+        {"id":"take_weapon","text":"Забрать монтировку из оружейной комнаты.","conditions":[],"effects":[{"type":"add_item","target":"crowbar"},{"type":"stat","target":"survival","value":2}],"next":"scene_6_1"}
+      ]
+    },
+    {
+      "id":"scene_5_mall","chapter":"Глава 5. Второй день","title":"Торговый центр","text":"За разбитой витриной ещё оставались припасы. В дальнем проходе звенели тележки: кто-то двигался между рядами.","conditions":[],
+      "choices":[
+        {"id":"mall_food","text":"Взять воду и консервы, не задерживаясь.","conditions":[],"effects":[{"type":"add_item","target":"water"},{"type":"add_item","target":"canned_food"},{"type":"stat","target":"survival","value":1}],"next":"scene_6_1"},
+        {"id":"mall_everything","text":"Рискнуть и обыскать склад.","dangerous":true,"risky":true,"conditions":[],"effects":[{"type":"add_item","target":"medkit"},{"type":"add_item","target":"flashlight"},{"type":"stat","target":"survival","value":2},{"type":"stat","target":"humanity","value":-1}],"next":"scene_6_1","critical_result_text":"На складе ты потерял последние силы."},
+        {"id":"mall_help","text":"Помочь запертой семье выбраться из магазина.","conditions":[],"effects":[{"type":"stat","target":"humanity","value":2},{"type":"stat","target":"fatigue","value":1},{"type":"add_item","target":"bar"}],"next":"scene_6_1"}
+      ]
+    },
+    {
+      "id":"scene_6_1","chapter":"Глава 6. Окраина","title":"Выбор маршрута","text":"Город кончался не сразу.\n\nСначала исчезали витрины. Потом многоэтажки. Потом остановки. Потом рекламные щиты.\n\nА за ними начиналась окраина: склады, гаражи, пустыри, старая трасса и лесополоса, ведущая к дачам.\n\nЛера разложила карту на капоте брошенной машины.\n\n— Есть четыре пути.","conditions":[],
+      "choices":[
+        {"id":"route_highway","text":"Трасса.","conditions":[],"effects":[{"type":"flag","target":"final_route_highway","value":true},{"type":"stat","target":"survival","value":1}],"next":"scene_7_1"},
+        {"id":"route_forest","text":"Лес.","conditions":[],"effects":[{"type":"flag","target":"final_route_forest","value":true},{"type":"stat","target":"fatigue","value":1},{"type":"stat","target":"survival","value":1}],"next":"scene_7_1"},
+        {"id":"route_industrial","text":"Промзона.","dangerous":true,"conditions":[],"effects":[{"type":"flag","target":"final_route_industrial","value":true},{"type":"stat","target":"survival","value":2}],"next":"scene_7_1"},
+        {"id":"route_railway","text":"Железнодорожная ветка.","conditions":[],"effects":[{"type":"flag","target":"final_route_railway","value":true},{"type":"stat","target":"survival","value":1}],"next":"scene_7_1"}
+      ]
+    },
+    {
+      "id":"scene_7_1","chapter":"Глава 7. Развилка","title":"Финальный выбор","text":"На рассвете вы вышли к развилке.\n\nОдна дорога вела к старым дачам. Там была тишина, лес и дом, где вы когда-то проводили лето.\n\nДругая — к военному лагерю. Там были прожекторы, заборы и громкоговорители.\n\nГде-то между ними могла быть мама.\n\nТы понял, что больше никто не скажет тебе, как правильно.\n\nТеперь выбирать должен ты.","conditions":[],
+      "choices":[
+        {"id":"final_dacha","text":"Идти к даче.","conditions":[],"effects":[],"next":"scene_ending_check_dacha"},
+        {"id":"final_military","text":"Идти к военному лагерю.","conditions":[],"effects":[],"next":"scene_ending_check_military"},
+        {"id":"final_alone","text":"Уйти в лес и не доверять никому.","conditions":[],"effects":[{"type":"flag","target":"hero_alone","value":true}],"next":"ending_survivor"}
+      ]
+    },
+    {"id":"scene_ending_check_dacha","chapter":"Финал","title":"Дорога к дачам","type":"ending_check","route":"dacha","text":"","conditions":[],"choices":[]},
+    {
+      "id":"scene_ending_check_military","chapter":"Финал","title":"У ворот лагеря","text":"Военные приказали сложить оружие, отдать документы и пройти по одному через санитарный коридор. Прожектор ослеплял, а за сеткой никто не отвечал на вопросы.","conditions":[],
+      "choices":[
+        {"id":"obey_military","text":"Подчиниться правилам лагеря.","conditions":[],"effects":[{"type":"flag","target":"military_obeyed","value":true}],"next":"ending_check_military_result"},
+        {"id":"reject_military","text":"Не доверять военным и уйти.","conditions":[],"effects":[{"type":"flag","target":"military_obeyed","value":false},{"type":"stat","target":"survival","value":1}],"next":"ending_check_military_result"}
+      ]
+    },
+    {"id":"ending_check_military_result","chapter":"Финал","title":"Решение","type":"ending_check","route":"military","text":"","conditions":[],"choices":[]},
+    {"id":"ending_human","chapter":"Концовка","title":"Мы ещё люди","type":"ending","text":"Дача встретила вас тишиной и запахом мокрой сосны. Мила уснула, держась за твою руку, Даня растопил печь, а Лера впервые за два дня улыбнулась.\n\nВы не спасли прежний мир. Но сохранили друг друга — и, значит, всё ещё оставались людьми.","conditions":[],"choices":[]},
+    {"id":"ending_survivor","chapter":"Концовка","title":"Только выжить","type":"ending","text":"Ты ушёл туда, где не было чужих просьб, правил и обещаний. Каждый шаг делал тебя сильнее и оставлял позади ещё одну часть прежнего Артёма.\n\nТы выжил. В новом мире этот ответ почему-то не звучал как победа.","conditions":[],"choices":[]},
+    {"id":"ending_military","chapter":"Концовка","title":"Военный порядок","type":"ending","text":"Ворота закрылись за вашей спиной. Вас накормили, осмотрели и выдали номера вместо имён. Здесь был свет, вода и вооружённая охрана.\n\nЗа безопасность пришлось платить правом задавать вопросы.","conditions":[],"choices":[]},
+    {"id":"ending_message","chapter":"Концовка","title":"Последнее сообщение","type":"ending","text":"Документы матери изменили всё. На последней странице была записана частота и короткая фраза лично для тебя. Рация ожила, и сквозь помехи прозвучал знакомый голос.\n\nМама была жива. История ещё не закончилась.","conditions":[],"choices":[]},
+    {"id":"ending_silence","chapter":"Концовка","title":"Тишина","type":"ending","text":"Сил больше не осталось. Город шумел где-то далеко, но до тебя этот шум уже не доходил.\n\nВ новом мире иногда проигрывают не потому, что выбрали неправильно, а потому что слишком долго не останавливались.","conditions":[],"choices":[]},
+    {"id":"ending_road","chapter":"Концовка","title":"Дорога продолжается","type":"ending","text":"Ни дача, ни лагерь не стали окончательным ответом. Вы нашли укрытие до следующего утра и договорились решить всё после сна.\n\nИногда надежда — это не спасение. Иногда это просто ещё один день, который удалось прожить вместе.","conditions":[],"choices":[]}
+  ]
+}

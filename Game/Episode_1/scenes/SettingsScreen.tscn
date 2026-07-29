@@ -1,0 +1,183 @@
+[gd_scene load_steps=2 format=3 uid="uid://xjcvw5rvvypg"]
+
+[ext_resource type="Script" path="res://scripts/SettingsScreen.gd" id="1_r00d3"]
+
+[node name="SettingsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r00d3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+separation = 16
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Настройки"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+separation = 16
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+separation = 12
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/MusicVolumeContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "Громкость музыки: 80%"
+vertical_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="SoundVolumeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+separation = 12
+
+[node name="SoundLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/SoundVolumeContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "Громкость звуков: 80%"
+vertical_alignment = 1
+
+[node name="SoundVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/SoundVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="TextSpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+separation = 12
+
+[node name="TextSpeedLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextSpeedContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "Скорость текста: 1.0x"
+vertical_alignment = 1
+
+[node name="TextSpeedSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextSpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="TextSizeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+separation = 12
+
+[node name="TextSizeLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextSizeContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "Размер текста: 24px"
+vertical_alignment = 1
+
+[node name="TextSizeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextSizeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 16.0
+max_value = 32.0
+step = 1.0
+value = 24.0
+
+[node name="TextAnimationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+separation = 12
+
+[node name="TextAnimationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextAnimationContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "Анимация текста"
+vertical_alignment = 1
+
+[node name="TextAnimationCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextAnimationContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="ResetSaveContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+separation = 12
+
+[node name="ResetSaveLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/ResetSaveContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "Сохранённая игра"
+vertical_alignment = 1
+
+[node name="ResetSaveButton" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/ResetSaveContainer"]
+layout_mode = 2
+text = "Удалить"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+separation = 12
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 40)
+text = "Назад"
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]
+title = "Подтверждение"
+initial_position = 1
+size = Vector2i(400, 150)
+dialog_text = "Вы уверены, что хотите удалить сохранённую игру? Это действие нельзя отменить."
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/MusicVolumeContainer/MusicVolumeSlider" to="." method="_on_music_volume_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/SoundVolumeContainer/SoundVolumeSlider" to="." method="_on_sound_volume_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextSpeedContainer/TextSpeedSlider" to="." method="_on_text_speed_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextSizeContainer/TextSizeSlider" to="." method="_on_text_size_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/TextAnimationContainer/TextAnimationCheckBox" to="." method="_on_text_animation_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SettingsVBox/ResetSaveContainer/ResetSaveButton" to="." method="_on_reset_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="confirmed" from="ConfirmDialog" to="." method="_on_confirm_delete_save"]

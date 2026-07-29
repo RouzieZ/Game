@@ -1,0 +1,78 @@
+{
+  "endings": [
+    {
+      "id": "ending_silence",
+      "title": "Тишина",
+      "priority": 100,
+      "conditions": [
+        { "type": "health", "value": "critical" },
+        { "type": "stat_min", "target": "fatigue", "value": 3 },
+        { "type": "not_has_item", "target": "bar" },
+        { "type": "not_has_item", "target": "canned_food" },
+        { "type": "not_has_item", "target": "bandage" },
+        { "type": "not_has_item", "target": "medkit" },
+        {
+          "type": "any",
+          "reason": "слишком мало поддержки",
+          "conditions": [
+            { "type": "stat_max", "target": "trust_danya", "value": 0 },
+            { "type": "stat_max", "target": "trust_lera", "value": 0 },
+            { "type": "flag", "target": "mila_found", "value": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ending_message",
+      "title": "Последнее сообщение",
+      "priority": 90,
+      "conditions": [
+        { "type": "has_item", "target": "mother_docs" },
+        { "type": "flag", "target": "hospital_truth", "value": true },
+        { "type": "stat_min", "target": "humanity", "value": 5 }
+      ]
+    },
+    {
+      "id": "ending_military",
+      "title": "Военный порядок",
+      "priority": 85,
+      "conditions": [
+        { "type": "flag", "target": "ending_route", "value": "military" },
+        { "type": "flag", "target": "military_obeyed", "value": true }
+      ]
+    },
+    {
+      "id": "ending_human",
+      "title": "Мы ещё люди",
+      "priority": 80,
+      "conditions": [
+        { "type": "stat_min", "target": "humanity", "value": 7 },
+        { "type": "flag", "target": "mila_found", "value": true },
+        {
+          "type": "any",
+          "reason": "Мила должна доверять Артёму или быть спасена",
+          "conditions": [
+            { "type": "stat_min", "target": "trust_mila", "value": 3 },
+            { "type": "flag", "target": "mila_saved", "value": true }
+          ]
+        },
+        { "type": "flag", "target": "hero_alone", "value": false }
+      ]
+    },
+    {
+      "id": "ending_survivor",
+      "title": "Только выжить",
+      "priority": 60,
+      "conditions": [
+        { "type": "stat_max", "target": "humanity", "value": 3 },
+        { "type": "stat_min", "target": "survival", "value": 6 }
+      ]
+    },
+    {
+      "id": "ending_road",
+      "title": "Дорога продолжается",
+      "priority": 0,
+      "conditions": []
+    }
+  ]
+}

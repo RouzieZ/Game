@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[node name="StatPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 48)
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Параметры героя"
+autowrap_mode = 2

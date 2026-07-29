@@ -1,0 +1,45 @@
+{
+  "scene": {
+    "id": "string",
+    "chapter": "string",
+    "title": "string",
+    "text": "string",
+    "conditions": [],
+    "choices": []
+  },
+  "choice": {
+    "id": "string",
+    "text": "string",
+    "conditions": [],
+    "effects": [],
+    "next": "scene_id",
+    "result_text": "string"
+  },
+  "supported_conditions": [
+    { "type": "has_item", "target": "item_id" },
+    { "type": "not_has_item", "target": "item_id" },
+    { "type": "flag", "target": "flag_name", "value": true },
+    { "type": "health", "value": "wounded" },
+    { "type": "stat_min", "target": "stat_name", "value": 5 },
+    { "type": "stat_max", "target": "stat_name", "value": 2 },
+    { "type": "any", "conditions": [] },
+    { "type": "all", "conditions": [] }
+  ],
+  "supported_effects": [
+    { "type": "stat", "target": "stat_name", "value": 1 },
+    { "type": "flag", "target": "flag_name", "value": true },
+    { "type": "add_item", "target": "item_id" },
+    { "type": "remove_item", "target": "item_id" },
+    { "type": "use_item", "target": "item_id" },
+    { "type": "consume_food" },
+    { "type": "heal_best" },
+    { "type": "health", "value": "wounded" },
+    { "type": "ending", "target": "ending_scene_id" }
+  ],
+  "supported_optional_choice_fields": {
+    "dangerous": "If true, unavailable when fatigue is 3.",
+    "risky": "If true, critical health can force a bad ending.",
+    "hide_when_unavailable": "If true, unavailable camp action is hidden.",
+    "critical_result_text": "Shown before the bad ending when risky choice is taken at critical health."
+  }
+}
